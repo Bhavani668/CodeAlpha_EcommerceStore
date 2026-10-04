@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+{% block content %}
+<h1>My Orders</h1>
+{% for order in orders %}
+<div class="box">
+<h3>Order #{{ order.id }} — ₹{{ order.total_amount }}</h3>
+<p>Status: {{ order.status }}</p>
+<p>{{ order.created_at }}</p>
+<ul>{% for item in order.items.all %}<li>{{ item.product.name }} — {{ item.quantity }} × ₹{{ item.price }}</li>{% endfor %}</ul>
+<p><b>Delivery:</b> {{ order.address }}</p>
+</div>
+{% empty %}<p>No orders yet.</p>{% endfor %}
+{% endblock %}

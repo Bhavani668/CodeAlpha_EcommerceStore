@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+{% block content %}
+<div class="detail">
+<div class="image big">Product</div>
+<div>
+<p>PRODUCT DETAILS</p>
+<h1>{{ product.name }}</h1>
+<p>{{ product.description }}</p>
+<h2>₹{{ product.price }}</h2>
+<p>Available stock: {{ product.stock }}</p>
+<a class="btn" href="{% url 'add_to_cart' product.id %}">Add to Cart</a>
+</div>
+</div>
+{% endblock %}
